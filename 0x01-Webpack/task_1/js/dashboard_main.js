@@ -8,7 +8,7 @@ function updateCounter() {
     $("#count").text(`${count} Clicks on the button`);    
 }
 
-const $button = $("<button>Click here to get started</button>").on("click",_debounce(updateCounter, 500, {
+const $button = $("<button>Click here to get started</button>").on("click",_.debounce(updateCounter, 500, {
     leading: true,
     trailing: false,
     })
