@@ -1,10 +1,12 @@
 import logo from './logo.jpg';
 import './App.css';
 import { getFullYear, getFooterCopy} from './utils';
+import Notifications from  '../../../task_2/dashboard/src/Notifications';
 
 function App() {
   return (
     <div className="App-container">
+      <div>{Notifications()}</div>
       <div className="App-header">
         <img src={logo} alt="logo"/>
         <h1>School dashboard</h1>
