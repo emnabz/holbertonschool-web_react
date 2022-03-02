@@ -40,6 +40,9 @@ class App extends React.Component {
   componentWillUnmount() {
     document.removeEventListener("keydown", this.handleKeyDown);
   }
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeyDown);
+  }
 
   render() {
     return (
