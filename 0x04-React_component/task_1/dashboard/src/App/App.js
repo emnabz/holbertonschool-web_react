@@ -30,12 +30,13 @@ class App extends React.Component {
   }
 
   handleKeyDown(e) {
-    if (e.ctrKey && e.code == "keyH") {
+    if (e.ctrlKey && e.code == "KeyH") {
       e.preventDefault()
-      alert("Logging you out")
-      this.logout();
+      alert("Logging you out");
+      this.logOut();
     }
   }
+
   componentWillUnmount() {
     document.removeEventListener("keydown", this.handleKeyDown);
   }
@@ -45,7 +46,7 @@ class App extends React.Component {
       <React.Fragment>
         <Notifications listNotifications={listNotifications}/>
         <div className="App">
-          <Header />
+          <Header />  
           { this.state.isLoggedIn ? <CourseList listCourses={listCourses} />: <Login /> }
         <Footer />
       </div>
