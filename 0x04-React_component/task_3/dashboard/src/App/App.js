@@ -6,6 +6,8 @@ import Login from '../Login/Login';
 import Notifications from '../Notifications/Notifications';
 import PropTypes from 'prop-types';
 import CourseList from '../CourseList/CourseList';
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
+import BodySection from '../BodySection/BodySection';
 import { getLatestNotification } from '../utils/utils';
 
 const listCourses = [
@@ -36,7 +38,7 @@ class App extends React.Component {
       this.logOut();
     }
   }
-
+  
   componentWillUnmount() {
     document.removeEventListener("keydown", this.handleKeyDown);
   }
@@ -49,14 +51,30 @@ class App extends React.Component {
       <React.Fragment>
         <Notifications listNotifications={listNotifications}/>
         <div className="App">
-          <Header />  
-          { this.state.isLoggedIn ? <CourseList listCourses={listCourses} />: <Login /> }
-        <Footer />
-      </div>
-    </React.Fragment>
+          <Header />
+          { this.state.isLoggedIn ? (
+            <BodySectionWithMarginBottom title="Course list">
+              <CourseList listCourses={listCourses} />
+            </BodySectionWithMarginBottom>
+          ) : (
+            <BodySectionWithMarginBottom title="Log in to continue">
+              <Login />
+            </BodySectionWithMarginBottom>
+          )
+          }
+          <BodySection title="News from the school">
+            <p>
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti 
+            atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+            </p>
+          </BodySection>
+          <Footer />
+        </div>
+      </React.Fragment>
     )
   }
-} 
+}
+
 App.propTypes = {
   isLoggedIn: PropTypes.bool,
   logOut: PropTypes.func
