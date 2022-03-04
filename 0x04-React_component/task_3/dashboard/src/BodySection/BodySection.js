@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function bodySelection(props) {
+export default function BodySection(props) {
     const { title, children } = props;
     return (
     <div className="bodySection">
@@ -11,7 +11,7 @@ export default function bodySelection(props) {
   )
 }
 
-bodySelection.prototype = {
+BodySection.prototype = {
     title: PropTypes.string.isRequired,
     children: PropTypes.node
 }
